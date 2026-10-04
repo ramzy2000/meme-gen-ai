@@ -1,0 +1,12 @@
+diff --git a/inference.py b/inference.py
+--- a/inference.py
++++ b/inference.py
+@@ -114,7 +114,7 @@ def main(args):
+                         fps, 
+                         handler)
+         
+-        add_audio_from_another_video(args.target_video, args.out_video_name, "audio")
++        # meme-swap: skip GHOST audio mux; ffmpeg -c:a copy is applied later. See patches/ghost-skip-audio-mux.patch.
+         print(f"Video saved with path {args.out_video_name}")
+     else:
+         result = get_final_image(final_frames_list, crop_frames_list, full_frames[0], tfm_array_list, handler)

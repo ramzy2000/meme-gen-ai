@@ -1,0 +1,12 @@
+name: memeswap
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - ffmpeg
+  - pip
+  - pyyaml
+  - numpy
+  - pip:
+      - "opencv-python>=4.5.4,<5"
+      - pytest>=7

@@ -1,0 +1,22 @@
+# Degraded path: install onnxruntime (CPU) instead of onnxruntime-gpu for GHOST.
+# inference.py still calls G.cuda() and G.half(), and Handler uses mx.gpu when
+# ctx_id is 0. This file does not make the generator run on CPU.
+device: cuda
+yunet_target: cpu
+onnxruntime: cpu
+enhance: false
+crf: 18
+chunk_seconds: 0
+timeout_seconds: 0
+sample_stride: 10
+similar_area_ratio: 0.75
+yunet_score_threshold: 0.6
+yunet_nms_threshold: 0.3
+yunet_model: models/face_detection_yunet_2023mar.onnx
+ghost_python: python
+ghost_dir: third_party/ghost
+ghost_commit: 44e58aad8600ee83ad4c8213aaa9698ccaf66c1c
+work_dir: work
+gfpgan_python: null
+gfpgan_root: null
+gfpgan_model: models/GFPGANv1.3.pth

@@ -1,0 +1,25 @@
+# CUDA config for the GHOST generator. Enhancer stays off.
+# Do not set batch_size; inference.py defaults to 40.
+# YuNet goes through the OpenCV DNN CPU target. The pip opencv-python wheel
+# does not ship a CUDA DNN backend. device: cuda is the GHOST generator.
+device: cuda
+yunet_target: cpu
+onnxruntime: gpu
+enhance: false
+crf: 18
+chunk_seconds: 0
+timeout_seconds: 0
+sample_stride: 10
+# Second-largest YuNet box / largest box. At or above this ratio, swap-video
+# refuses to guess unless --face-index is set.
+similar_area_ratio: 0.75
+yunet_score_threshold: 0.6
+yunet_nms_threshold: 0.3
+yunet_model: models/face_detection_yunet_2023mar.onnx
+ghost_python: python
+ghost_dir: third_party/ghost
+ghost_commit: 44e58aad8600ee83ad4c8213aaa9698ccaf66c1c
+work_dir: work
+gfpgan_python: null
+gfpgan_root: null
+gfpgan_model: models/GFPGANv1.3.pth
